@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: my-new-deployment
 spec:
   replicas: 2
   selector:
@@ -26,16 +26,7 @@ spec:
         value: "true"
         effect: "NoSchedule"
       affinity:
-         podAffinity:
-           requiredDuringSchedulingIgnoredDuringExecution:
-         - labelSelector:
-               matchExpressions:
-               - key: "app"
-                 operator: In
-                 values:
-                 - myapp
-              topologyKey: "kubernetes.io/hostname"
-        podAntiAffinity:  # Add PodAntiAffinity rules
+        podAffinity:  # Add PodAffinity rules
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
