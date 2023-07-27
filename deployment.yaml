@@ -26,7 +26,7 @@ spec:
         value: "true"
         effect: "NoSchedule"
       affinity:
-        podAffinity:  # Add PodAffinity rules
+        podAntiAffinity:  # Add Pod anti-affinity rule
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
